@@ -6,13 +6,19 @@
 }
 
 
-
+.card-img{
+    width : 20%;
+    margin-left:10rem;
+    margin-top: -4.5rem;
+    z-index: 1;
+    position: absolute;
+}
 .customer-card{
     border-radius: 1rem;
     width:90%;
     height: 35%;
     flex-direction:row-reverse;
-    padding-bottom: 1rem;
+    padding: 1rem;
 }
 
 .position{
@@ -35,7 +41,7 @@
 }
 .ecoClassTitle{ 
     margin-left:3rem;
-    margin-top : -1.2em;
+    margin-top : -10.6987em;
 }
 
 .firstClass{
@@ -43,7 +49,7 @@
 }
 
 .ecoClass{
-    margin-top: -29rem;
+    margin-top: -18rem;
     margin-left:50rem;
 }
 
@@ -61,8 +67,20 @@ h6{
     }
 
 .vr {
+    margin-top:-4rem;
     margin-left:42.5rem;
-    margin-top:-30rem;
     height : 35rem;
+    position:relative;
+
 }
 
+
+#id1{
+    width : 20%;
+    margin-left:12rem;
+    margin-top:-6rem;
+}
+
+.urgent-msg{
+    padding-top : 1rem;
+}
