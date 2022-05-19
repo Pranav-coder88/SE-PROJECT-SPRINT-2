@@ -40,12 +40,12 @@ app.get("/qrCodeConfirmation", async function (req, res) {
 	const customer = await flightDetail.find({ customerName, customerSeat, flightNumber }).lean();
 
 	if (customer.length > 0) {
-		flightDetail.updateOne({customerName : req.query.customerName} , {isBoarded:'True'}, (err) =>{
+		flightDetail.updateOne({ customerName: req.query.customerName }, { isBoarded: 'True' }, (err) => {
 
-			if(err){
+			if (err) {
 				console.log(err);
 			}
-			else{
+			else {
 				console.log('Success');
 			}
 
@@ -66,22 +66,22 @@ app.get("/qrCodeConfirmation", async function (req, res) {
 });
 
 
-	app.post('/queryingForUpdates', async (req, res) => {
+app.post('/queryingForUpdates', async (req, res) => {
 
-		const customer = await flightDetail.find({
-			isBoarded: 'False'
-		}).lean();
+	const customer = await flightDetail.find({
+		isBoarded: 'False'
+	}).lean();
 
-		if (customer.length > 0) {
-			res.json({ status: 'ok', customer: customer });
+	if (customer.length > 0) {
+		res.json({ status: 'ok', customer: customer });
 
 
 
-		}
-		else {
-			res.json({ status: 'error' })
+	}
+	else {
+		res.json({ status: 'error' })
 
-		}
+	}
 
 
 
@@ -93,30 +93,19 @@ app.get("/qrCodeConfirmation", async function (req, res) {
 app.post('/queryingForCustomerList', async (req, res) => {
 
 	flightDetail.find((err, docs) => {
-		// console.log(docs);
 
-
-		// console.log(typeof(docs));
 
 		if (docs.length > 0) {
-			res.json({ status: 'ok', data: docs})
-		};
+			res.json({ status: 'ok', data: docs })
+		}
+
+		else {
+			res.json({ status: 'error' })
+
+		}
 
 
 	});
-
-
-
-
-	// }
-	// else {
-	// 	res.json({ status: 'error' })
-
-	// }
-
-
-
-	// always send a response:
 
 })
 

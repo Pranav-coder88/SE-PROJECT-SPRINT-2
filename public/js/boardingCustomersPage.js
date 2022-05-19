@@ -4,9 +4,7 @@ window.onload = async () => {
 
     $.post('/queryingForCustomerList', (result) => {
 
-        // console.log(result.customer);
 
-        var toAdd = document.getElementById('firstClass')
 
         if (result.status == 'ok') {
             // console.log(result.data);
@@ -23,7 +21,7 @@ window.onload = async () => {
 
 
                         $('#firstClass').append('<div class="card customer-card border-primary "><div class="card-body"><h5 class="card-title" > ' + data[i].customerName + ' </h5><p class="card-text">Seat ' + data[i].customerSeat
-                            + ' </p><img class="card-img" src='+path+' alt="Card image"><p class="card-text urgent-msg">Urgent Message : ' + data[i].msg + ' </p></div ></div>');
+                            + ' </p><img class="card-img" src=' + path + ' alt="Card image"><p class="card-text urgent-msg">Urgent Message : ' + data[i].msg + ' </p></div ></div>');
 
 
 
@@ -35,8 +33,8 @@ window.onload = async () => {
                 // alert('Success')
             }
 
-            else if (data[0].className == 'Eco Class'){
-                 $(document).ready(function () {
+            else if (data[0].className == 'Eco Class') {
+                $(document).ready(function () {
 
                     for (var i = 0; i <= data.length; i++) {
 
@@ -66,24 +64,24 @@ window.onload = async () => {
 
 
 
-    // $.post('/queryingForUpdates', (result) => {
+    $.post('/queryingForUpdates', (result) => {
 
-    //     console.log(result.customer);
+        console.log(result.customer);
 
-    //     if (result.status == 'ok') {
-    //         document.getElementById('id1').src = 'IMAGES/accept.png';
-
-
-
-    //         // alert('Success')
-    //     } else if (result.status == 'error') {
-    //         document.getElementById('id1').src = 'IMAGES/multiply.png';
-
-    //     }
+        if (result.status == 'ok') {
+            document.getElementById('id1').src = 'IMAGES/accept.png';
 
 
 
-    // });
+            // alert('Success')
+        } else if (result.status == 'error') {
+            document.getElementById('id1').src = 'IMAGES/multiply.png';
+
+        }
+
+
+
+    });
 
 
 
